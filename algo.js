@@ -1,8 +1,16 @@
 const prompt = require("prompt-sync")({sigint: true});
-let ifEvenDouble = 0
+
 let N= " ";
-j=0;
+dash=0;
 N =prompt("Number : ");
+numberOdd='';
+numberEven='';
+odds=0;
+evens=0;
+sumOdd=0;
+sumEven=0;
+TotalSum=0;
+
 
 if (N.length==16){
     console.log("master card")
@@ -13,35 +21,36 @@ else if (N.length==13){
 else if(N.length==15){
     console.log("American card")
 }
-for(i=0 ;i=N.length-1; i--){
-   //var digit=N.charAt(i);
-   //j= parseInt(digit,10) 
-}
-if(totalSum % 10 === 0){
-    console.log('Valid');
-    return true;
-  } else {
-    console.log('Invalid');
-    return false;
-  }
-// if((ifEvenDouble % 2) === 0){
-//     let doubled = arr[i] * 2;
-// }
-console.log(j)
-// function is_alphaDash(N)
-// {
-//  regexp = /^\d{1,3}$/;
-  
-//         if (regexp.test(N))
-//           {
-//             return false;
-//           }
-//         else
-//           {
-//             return true;
-//           }
-// }
+for(i=0; i<N.length;i++)
+{
+    charCode = N[i].charCodeAt();
+    if (charCode == 45)
+    console.log(" Your card is invalid");  
+    }
+    for(i=0;i<N.length;i += 2){
+        odds = N[i] * 2;
+        if(odds>9){
+            odds -= 9;
+        }
+        numberOdd += odds;
+        sumOdd += odds;
+    }
+    //console.log(numberOdd);
+    //console.log(sumOdd);
+    
+    for(i=1;i<N.length;i+= 2){
+        evens = parseInt(N[i]);
+        numberEven += evens;
+        sumEven += evens;
+    }
+    //console.log(numberEven);
+    //console.log(sumEven);
+    TotalSum = sumOdd + sumEven;
+    console.log(TotalSum);
+    if((TotalSum % 10) == 0){
+            console.log(" Valid Number")
+        }
+        else{
+            console.log(" Invalid Number")
+        }
 
-
-
-// console.log(is_alphaDash(''));
